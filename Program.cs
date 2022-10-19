@@ -3,7 +3,10 @@ using Task_10_Car_parking;
 bool stillMore;
 TimeOnly startTime, endTime;
 
-
+Console.WriteLine("-----------------------------------------------------------------------------");
+Console.WriteLine("Welcome to Leonardo Corporations, we are here to take money from your parking");
+Console.WriteLine("                Our services available from 7:00 to 22:00                    ");
+Console.WriteLine("-----------------------------------------------------------------------------\n");
 do
 {
     Console.Write("When do you want to begin: ");
@@ -18,19 +21,13 @@ do
     received = Console.ReadLine();
     while (!TimeOnly.TryParse(received, out endTime) || (endTime.Hour < 7) || (endTime.Hour > 22) || (endTime.Hour >= 22 && endTime.Minute > 00) || startTime > endTime)
     {
-        Console.Write("Invalid time, type end: ");
+        Console.Write("Invalid time, no service after 22:00 ");
         received = Console.ReadLine();
     }
 
     Time_counting fees = new Time_counting(startTime, endTime);
     Console.Write("Your car parking charges is: {0:F0} euros", fees.calculateCharges());
     Console.ReadLine();
-
-
-
-
-
-
 
 
 
