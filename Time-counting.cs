@@ -25,11 +25,12 @@ namespace Task_10_Car_parking
             double Hours = Math.Ceiling(timeSpanRounded / (60 * 60));
             double charges;
             if (Hours <= 2)
-                return Hours * 2;
+                charges = Hours * 2;
             else if (Hours > 2 && Hours <= 5)
-                return Hours * 1.75;
+                charges = Hours * 1.75;
             else
-                return Hours * 1.5;
+                charges = Hours * 1.5;
+            
             return charges;
         }
     }
